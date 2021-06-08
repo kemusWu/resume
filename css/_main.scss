@@ -1,0 +1,502 @@
+html {
+  font-size: 14px;
+
+  @include desktop-md {
+    font-size: 16px;
+  }
+}
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  letter-spacing: 3px;
+  background: $secondary;
+
+  .title-box {
+    display: flex;
+    align-items: center;
+
+    @include desktop-md {
+      flex-direction: column;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 1px;
+      margin-left: 15px;
+      background: $secondary;
+
+      @include desktop-md {
+        width: 1px;
+        height: 80px;
+        margin-top: 15px;
+        margin-left: 0;
+      }
+    }
+
+    h4 {
+      margin: 0;
+
+      @include desktop-md {
+        writing-mode: vertical-lr;
+      }
+    }
+  }
+}
+
+#hamburger {
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  width: 40px;
+  height: 40px;
+  background: url('../img/hamburger.svg');
+  background-size: contain;
+  z-index: 4;
+  cursor: pointer;
+  transition: all .5s;
+
+  &.click {
+    transform: rotate(360deg);
+  }
+}
+
+#nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 3;
+  overflow: hidden;
+  background: $secondary;
+
+  .nav-circle {
+    position: absolute;
+    top: 50%;
+    right: -30%;
+    transform: translate(0, -50%);
+    opacity: 0;
+    background: $primary;
+    border-radius: 100%;
+  }
+
+  .nav-container {
+    position: relative;
+    z-index: 2;
+    padding-right: 60px;
+
+    @include desktop-md {
+      padding-right: 100px;
+    }
+
+    @include desktop-1920 {
+      padding-right: 200px;
+    }
+
+
+    a {
+      position: relative;
+      display: block;
+      padding: 10px 5px;
+      opacity: 0;
+      color: $secondary;
+      text-decoration: none;
+      transition: all .3s;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+  }
+}
+
+// #head {
+//   background: $primary;
+//   overflow: hidden;
+
+//   .row {
+//     height: 700px;
+
+//     @include desktop-md {
+//       height: 400px;
+//     }
+
+//     @include desktop-lg {
+//       height: 670px;
+//     }
+
+//     h1 {
+//       font-family: 'Noto Serif TC', serif;
+//     }
+
+//     .photo-area {
+//       position: absolute;
+//       bottom: 50%;
+//       width: 100%;
+
+//       @include desktop-md {
+//         bottom: 38%;
+//       }
+
+//       >* {
+//         position: absolute;
+//         top: 0;
+//         right: 0;
+//         bottom: 0;
+//         left: 0;
+//         margin: auto;
+//       }
+
+//       img {
+
+
+//         &.circle1 {
+//           width: 100%;
+//           animation: circle1Turn 40s linear infinite;
+//         }
+
+//         &.circle2 {
+//           width: 80%;
+//           transform: rotate(100deg);
+//           animation: circle2Turn 25s linear infinite;
+//         }
+
+//         &.circle3 {
+//           width: 60%;
+//           transform: rotate(100deg);
+//           animation: circle1Turn 5s linear infinite;
+//         }
+
+//         &.me {
+//           width: 55%;
+//         }
+//       }
+
+//       .circle_bg {
+//         width: 80%;
+//         height: 80%;
+//         background: #000;
+//         border-radius: 100%;
+//       }
+//     }
+//   }
+// }
+
+#head {
+  background: $primary;
+  overflow: hidden;
+
+  .row {
+    height: 700px;
+
+    @include desktop-md {
+      height: 400px;
+    }
+
+    @include desktop-lg {
+      height: 670px;
+    }
+
+    h1 {
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .photo-area {
+      position: absolute;
+      bottom: -16%;
+      width: 100%;
+
+      @include desktop-md {
+        bottom: -12%;
+      }
+
+      svg {
+        width: 100%;
+        .svg-circle1 {
+          stroke-dasharray: 1500;
+          stroke-dashoffset: 1500;
+          animation: drawing-svg 2s;
+          animation-delay: 1s;
+          animation-fill-mode: forwards;
+        }
+    
+        .svg-circle2 {
+          stroke-dasharray: 1200;
+          stroke-dashoffset: -1200;
+          animation: drawing-svg 2s;
+          animation-delay: 2s;
+          animation-fill-mode: forwards;
+        }
+    
+        .svg-circle3 {
+          opacity: 0;
+          animation: img-opacity 2s;
+          animation-delay: 3.8s;
+          animation-fill-mode: forwards;
+        }
+      }
+
+      img{
+        &.me {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 55%;
+          opacity: 0;
+          transform: translate(-50%,-50%);
+          animation: img-opacity 2s;
+          animation-delay: 3.8s;
+          animation-fill-mode: forwards;
+        }
+      }
+
+    }
+  }
+}
+
+#skill {
+  position: relative;
+  padding: 80px 15px;
+
+  .container {
+    position: relative;
+    z-index: 1;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background: $primary-dark;
+
+    .skill-box {
+      display: flex;
+      flex-wrap: wrap;
+
+      div {
+        width: 50%;
+        margin: 15px 0;
+
+        @include desktop-md {
+          width: 33.33%;
+        }
+
+        @include desktop-lg {
+          width: 20%;
+        }
+
+        img {
+          width: 25px;
+          margin-right: 10px;
+        }
+      }
+
+    }
+  }
+
+  .bg-circle {
+    position: absolute;
+    bottom: 50px;
+    left: -100px;
+    width: 350px;
+    height: 350px;
+    background: url(../img/bg_circle1.svg) no-repeat center;
+    background-size: contain;
+  }
+}
+
+#experience {
+  color: $primary;
+
+  .title-box {
+    &::after {
+      background: $primary;
+    }
+  }
+
+  .ex-box {
+    padding-bottom: 20px;
+
+    +.ex-box::before {
+      content: '';
+      display: block;
+      width: 0;
+      height: 1px;
+      margin-bottom: 35px;
+      background: #1A1A17;
+      animation: exLine 2s linear;
+      animation-delay: 1s;
+      animation-fill-mode: forwards;
+    }
+
+  }
+
+
+}
+
+#portfolio {
+  position: relative;
+  padding: 80px 0;
+  overflow: hidden;
+
+  a {
+    text-decoration: none;
+  }
+
+  .portfolio-box {
+    &:hover {
+      .img {
+        img {
+          transform: scale(1);
+        }
+
+        img.color {
+          z-index: 1;
+        }
+      }
+
+      .text img {
+        transform: rotate(500deg);
+      }
+
+      &::after {
+        height: 100%;
+        opacity: 0.3;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background: $secondary;
+      transition: all .5s;
+    }
+
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    height:350px;
+    padding: 15px;
+    color: $primary;
+    background: $secondary-dark;
+
+    .img {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-self: center;
+      width: 87%;
+      border: 1px solid #979797;
+
+      img {
+        width: 100%;
+        transform: scale(.9);
+        transition: all .5s;
+
+        &.color {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          transition: all .5s;
+        }
+      }
+    }
+
+    .text {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      width: 10%;
+      writing-mode: vertical-lr;
+
+      img {
+        width: 20px;
+        transform: rotate(140deg);
+        transition: all .5s;
+      }
+
+      span {
+        margin-top: 10px;
+
+      }
+    }
+  }
+
+  .bg-circle {
+    position: absolute;
+    top: -50px;
+    right: -100px;
+    width: 220px;
+    height: 220px;
+    background: url(../img/bg_circle2.svg) no-repeat center;
+    background-size: contain;
+  }
+}
+
+#about {
+  background-color: $primary;
+
+  .about-img {
+    height: 200px;
+    background: url(../img/about_img.jpg) no-repeat center;
+    background-size: cover;
+
+    @include desktop-md {
+      height: 100%;
+    }
+  }
+
+  .title-box {
+    margin-top: 30px;
+  }
+
+  .about-text {
+    padding: 60px 15px;
+
+    @include desktop-md {
+      padding-right: 10%;
+    }
+
+    @include desktop-1920 {
+      padding-top: 150px;
+      padding-bottom: 150px;
+    }
+
+    p {
+      margin: 30px 0;
+    }
+  }
+}
+
+#contact {
+  padding: 60px 0;
+
+  a {
+    text-decoration: none;
+    color: $primary;
+
+    img {
+      width: 20px;
+      margin-right: 10px;
+    }
+  }
+}
+
+#to-top {
+  .button {
+    height: 50px;
+    line-height: 65px;
+    margin: 0;
+    text-align: center;
+    background: url(../img/top_button.svg) no-repeat center bottom;
+    background-size: contain;
+    cursor: pointer;
+  }
+}
