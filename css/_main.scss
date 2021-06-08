@@ -115,78 +115,6 @@ body {
   }
 }
 
-// #head {
-//   background: $primary;
-//   overflow: hidden;
-
-//   .row {
-//     height: 700px;
-
-//     @include desktop-md {
-//       height: 400px;
-//     }
-
-//     @include desktop-lg {
-//       height: 670px;
-//     }
-
-//     h1 {
-//       font-family: 'Noto Serif TC', serif;
-//     }
-
-//     .photo-area {
-//       position: absolute;
-//       bottom: 50%;
-//       width: 100%;
-
-//       @include desktop-md {
-//         bottom: 38%;
-//       }
-
-//       >* {
-//         position: absolute;
-//         top: 0;
-//         right: 0;
-//         bottom: 0;
-//         left: 0;
-//         margin: auto;
-//       }
-
-//       img {
-
-
-//         &.circle1 {
-//           width: 100%;
-//           animation: circle1Turn 40s linear infinite;
-//         }
-
-//         &.circle2 {
-//           width: 80%;
-//           transform: rotate(100deg);
-//           animation: circle2Turn 25s linear infinite;
-//         }
-
-//         &.circle3 {
-//           width: 60%;
-//           transform: rotate(100deg);
-//           animation: circle1Turn 5s linear infinite;
-//         }
-
-//         &.me {
-//           width: 55%;
-//         }
-//       }
-
-//       .circle_bg {
-//         width: 80%;
-//         height: 80%;
-//         background: #000;
-//         border-radius: 100%;
-//       }
-//     }
-//   }
-// }
-
 #head {
   background: $primary;
   overflow: hidden;
@@ -345,6 +273,14 @@ body {
   }
 
   .portfolio-box {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    height:350px;
+    padding: 15px;
+    color: $primary;
+    background: $secondary-dark;
+
     &:hover {
       .img {
         img {
@@ -376,15 +312,7 @@ body {
       background: $secondary;
       transition: all .5s;
     }
-
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    height:350px;
-    padding: 15px;
-    color: $primary;
-    background: $secondary-dark;
-
+    
     .img {
       position: relative;
       z-index: 1;
