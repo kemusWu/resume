@@ -51,7 +51,7 @@ body {
   left: 5%;
   width: 40px;
   height: 40px;
-  background: url('../img/hamburger.svg');
+  background: url('../img/hamburger.svg') center;
   background-size: contain;
   z-index: 4;
   cursor: pointer;
@@ -59,6 +59,25 @@ body {
 
   &.click {
     transform: rotate(360deg);
+  }
+
+  &::after {
+    content: 'menu';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    color: #a2a1a0;
+    opacity: 0;
+    transition: opacity .3s;
+  }
+
+  &:hover {
+    width: 50px;
+    height: 50px;
+
+    &::after {
+      opacity: 1;
+    }
   }
 }
 
@@ -145,6 +164,7 @@ body {
 
       svg {
         width: 100%;
+
         .svg-circle1 {
           stroke-dasharray: 1500;
           stroke-dashoffset: 1500;
@@ -152,7 +172,7 @@ body {
           animation-delay: 1s;
           animation-fill-mode: forwards;
         }
-    
+
         .svg-circle2 {
           stroke-dasharray: 1200;
           stroke-dashoffset: -1200;
@@ -160,7 +180,7 @@ body {
           animation-delay: 2s;
           animation-fill-mode: forwards;
         }
-    
+
         .svg-circle3 {
           opacity: 0;
           animation: img-opacity 2s;
@@ -169,14 +189,14 @@ body {
         }
       }
 
-      img{
+      img {
         &.me {
           position: absolute;
           top: 50%;
           left: 50%;
           width: 55%;
           opacity: 0;
-          transform: translate(-50%,-50%);
+          transform: translate(-50%, -50%);
           animation: img-opacity 2s;
           animation-delay: 3.8s;
           animation-fill-mode: forwards;
@@ -276,7 +296,7 @@ body {
     position: relative;
     display: flex;
     justify-content: space-between;
-    height:350px;
+    height: 350px;
     padding: 15px;
     color: $primary;
     background: $secondary-dark;
@@ -312,7 +332,7 @@ body {
       background: $secondary;
       transition: all .5s;
     }
-    
+
     .img {
       position: relative;
       z-index: 1;
